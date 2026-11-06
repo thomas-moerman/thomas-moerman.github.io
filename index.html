@@ -1,73 +1,95 @@
 ---
 layout: default
 ---
-<section class="hero">
-  <div class="wrap">
-    <h1>always building.<br>occasionally useful.</h1>
-    <p class="status">Currently building Forenoon as its CTO.</p>
-    <div class="hero-row">
-      <a class="btn label" href="#work">See the work <span aria-hidden="true">→</span></a>
+<section class="hero" aria-labelledby="hero-h">
+  <div class="hero-title">
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 1280 320" preserveAspectRatio="xMaxYMid slice" focusable="false">
+        <defs><pattern id="sq" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#99BAD7" stroke-width="2"/></pattern></defs>
+        <rect class="grid" width="1280" height="320" fill="url(#sq)"/>
+        <!-- baseline and the slash's construction line -->
+        <line class="base" x1="800" y1="288" x2="1280" y2="288" stroke="#00539C" stroke-width="2" stroke-dasharray="6 6"/>
+        <line class="cons" x1="1056" y1="288" x2="1213.6" y2="-49.9" stroke="#00539C" stroke-width="2" stroke-dasharray="6 6"/>
+        <!-- the slash: 64 wide, 256 high, 65° -->
+        <g class="move"><polygon class="slash" points="992,288 1111.4,32 1175.4,32 1056,288" fill="#00539C"/></g>
+        <!-- angle -->
+        <path class="arc" pathLength="1" d="M1152 288 A96 96 0 0 0 1096.6 201" fill="none" stroke="#00539C" stroke-width="2"/>
+        <path class="pivot" d="M1046 288h20M1056 278v20" stroke="#00539C" stroke-width="2"/>
+        <g class="stamp l65"><rect x="1158" y="214" width="56" height="30" fill="#F4E3B5"/>
+        <text x="1166" y="236" font-size="18">65°</text></g>
+        <g class="stamp lfig"><rect x="770" y="40" width="226" height="32" fill="#F4E3B5"/>
+        <text x="780" y="62" font-size="16">FIG. 01 / THE SLASH</text></g>
+      </svg>
     </div>
+    <h1 id="hero-h"><span class="w" style="--i:0"><span>always</span></span> <span class="w" style="--i:1"><span>building.</span></span> <span class="w" style="--i:2"><span>occasionally</span></span> <span class="w" style="--i:3"><span>useful.</span></span></h1>
+  </div>
+  <div class="block">
+    <div class="grid-fill" aria-hidden="true"></div>
+    <div class="now"><p class="label live">now</p><p>Currently building Forenoon as its CTO.</p></div>
+    <a class="btn" href="#work">See the work <i aria-hidden="true">→</i></a>
   </div>
 </section>
 
-<section id="about" class="section" aria-labelledby="about-h">
-  <div class="wrap">
-    <h2 id="about-h" class="label">01 / about</h2>
-    <div class="prose">
-      <h3>Hi, I'm Thomas.</h3>
-      <p>I often wonder how I ended up in tech, and the furthest back I can trace it is the day we got our first desktop at home. It didn’t take long before I started wondering why this PC was so slow at running the games I wanted to play, and why our internet was so bad.</p>
-      <p>For the second one, help arrived in the form of an older man, a colleague of my father who claimed to be “an IT guy”. I still remember the long hairs growing out of his ears and how he kept pulling at them while he stared at the screen. I watched him click “Troubleshoot internet connection” ten times in a row, as if the eleventh time might finally work. It never did. He left without fixing anything, and it frustrated me so much that I sat down and started digging into it myself, until I fixed it.</p>
-      <p>That moment stuck with me. Fixing our internet wasn’t such a big deal, but it left me with a fascination for how the digital world around me actually worked, and with the feeling that clicking until something works is never enough. I wanted to understand what was happening underneath, and that feeling has never really left.</p>
-      <p>School was a different story. I wasn’t a good student when I was young. For a long time I blamed my environment, but at the end of the day it was me, and that is what pushed me towards a job in the military first. I enjoyed it for a while, but at some point I felt I no longer fit in that environment, and I decided to leave. I didn’t leave empty-handed, though. The army gave me a strong ethical compass and a discipline that I still carry with me.</p>
-      <p>Leaving gave me a renewed energy I hadn’t felt before, and for the first time I turned out to be a good student. I went on to get an MSc in Artificial Intelligence, which was pretty cool, and it brought me right back to that old urge to understand how things work underneath.</p>
-      <p>I’ve never been a great developer, and I’ll be honest about that. What I can do is make AI do great things, and I firmly believe in its potential. I think we have only scratched the surface of what it can do, even if not everyone sees or feels that yet.</p>
-      <p>Today I’m the CTO of Forenoon, a small startup. I want to build great things, keep learning, and help others along the way. Pretty much what that kid behind our first desktop wanted too, just with better internet now.</p>
-    </div>
+<section id="about" class="sec" aria-labelledby="about-h">
+  <div class="sec-index"><div><span class="no" aria-hidden="true">01</span><h2 id="about-h">about</h2></div></div>
+  <div class="sec-body">
+    <div class="about-head"><h3>Hi, I’m Thomas.</h3></div>
+    <ol class="story">
+      <li><span class="note label" style="--c:13">first desktop</span><p>I often wonder how I ended up in tech, and the furthest back I can trace it is the day we got our first desktop at home. It didn’t take long before I started wondering why this PC was so slow at running the games I wanted to play, and why our internet was so bad.</p></li>
+      <li><span class="note label" style="--c:10">the it guy</span><p>For the second one, help arrived in the form of an older man, a colleague of my father who claimed to be “an IT guy”. I still remember the long hairs growing out of his ears and how he kept pulling at them while he stared at the screen. I watched him click “Troubleshoot internet connection” ten times in a row, as if the eleventh time might finally work. It never did. He left without fixing anything, and it frustrated me so much that I sat down and started digging into it myself, until I fixed it.</p></li>
+      <li><span class="note label" style="--c:10">underneath</span><p>That moment stuck with me. Fixing our internet wasn’t such a big deal, but it left me with a fascination for how the digital world around me actually worked, and with the feeling that clicking until something works is never enough. I wanted to understand what was happening underneath, and that feeling has never really left.</p></li>
+      <li><span class="note label" style="--c:8">the army</span><p>School was a different story. I wasn’t a good student when I was young. For a long time I blamed my environment, but at the end of the day it was me, and that is what pushed me towards a job in the military first. I enjoyed it for a while, but at some point I felt I no longer fit in that environment, and I decided to leave. I didn’t leave empty-handed, though. The army gave me a strong ethical compass and a discipline that I still carry with me.</p></li>
+      <li><span class="note label" style="--c:6">msc ai</span><p>Leaving gave me a renewed energy I hadn’t felt before, and for the first time I turned out to be a good student. I went on to get an MSc in Artificial Intelligence, which was pretty cool, and it brought me right back to that old urge to understand how things work underneath.</p></li>
+      <li><span class="note label" style="--c:8">honestly</span><p>I’ve never been a great developer, and I’ll be honest about that. What I can do is make AI do great things, and I firmly believe in its potential. I think we have only scratched the surface of what it can do, even if not everyone sees or feels that yet.</p></li>
+      <li><span class="note label" style="--c:5">today</span><p>Today I’m the CTO of Forenoon, a small startup. I want to build great things, keep learning, and help others along the way. Pretty much what that kid behind our first desktop wanted too, just with better internet now.</p></li>
+    </ol>
   </div>
 </section>
 
-<section id="work" class="section alt" aria-labelledby="work-h">
-  <div class="wrap">
-  <h2 id="work-h" class="label">02 / work</h2>
-  <ul class="cards">
-    {% for p in site.data.projects %}
-    <li class="card">
-      <p class="card-head label">{{ p.label }}</p>
-      <div class="card-body">
-        <h3><a href="{{ p.url }}">{{ p.title }}</a></h3>
-        <p>{{ p.text }}</p>
-        <p class="tags label">{% for t in p.tags %}<span>{{ t }}</span>{% endfor %}</p>
-      </div>
-    </li>
-    {% endfor %}
-  </ul>
+<section id="work" class="sec" aria-labelledby="work-h">
+  <div class="sec-index"><div><span class="no" aria-hidden="true">02</span><h2 id="work-h">work</h2></div></div>
+  <div class="sec-body">
+    <div class="thead work-cols label" aria-hidden="true"><span>no.</span><span>project</span><span>topics</span><span></span></div>
+    <ul class="rows">
+      {% for p in site.data.projects %}
+      <li><a class="row work-cols" href="{{ p.url }}">
+        <span class="top"><span class="no label">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span><span class="go" aria-hidden="true">↗</span></span>
+        <div class="main"><span class="kind label">{{ p.label }}</span><h3><span>{{ p.title }}</span></h3><p class="desc">{{ p.text }}</p></div>
+        <span class="tags label">{% for t in p.tags %}<span>{{ t }}</span>{% endfor %}</span>
+      </a></li>
+      {% endfor %}
+    </ul>
   </div>
 </section>
 
-<section id="notes" class="section field" aria-labelledby="notes-h">
-  <div class="wrap">
-    <h2 id="notes-h" class="label">03 / notes</h2>
+<section id="notes" class="sec" aria-labelledby="notes-h">
+  <div class="sec-index"><div><span class="no" aria-hidden="true">03</span><h2 id="notes-h">notes</h2></div></div>
+  <div class="sec-body">
+    <div class="thead notes-cols label" aria-hidden="true"><span>date</span><span>title</span><span>read</span><span></span></div>
     {% if site.posts.size > 0 %}
-    <ul class="cards">
+    <ul class="rows">
       {% for post in site.posts %}
-      <li class="card">
-        <p class="card-head label">note / {{ post.date | date: "%d.%m.%Y" }}</p>
-        <div class="card-body"><h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3></div>
-      </li>
+      {% assign w = post.content | strip_html | number_of_words | plus: 199 | divided_by: 200 | at_least: 1 %}
+      <li><a class="row notes-row notes-cols" href="{{ post.url | relative_url }}">
+        <span class="top"><span class="no label">{{ post.date | date: "%d.%m.%Y" }}</span><span class="go" aria-hidden="true">→</span></span>
+        <div class="main"><h3 style="view-transition-name:note-{{ post.date | date: '%Y%m%d' }}-{{ post.slug }}"><span>{{ post.title }}</span></h3></div>
+        <span class="mins label">{{ w }} min</span>
+      </a></li>
       {% endfor %}
     </ul>
     {% else %}
-    <p class="empty">Nothing here yet. Notes will show up here when I write them.</p>
+    <p class="empty"><strong>Nothing here yet.</strong><span>Notes will show up here when I write them.</span></p>
     {% endif %}
   </div>
 </section>
 
-<section id="contact" class="section wrap" aria-labelledby="contact-h">
-  <h2 id="contact-h" class="label">04 / contact</h2>
-  <ul class="slashes">
-    <li><a href="https://github.com/thomas-moerman">GitHub</a></li>
-    <li><a href="https://www.linkedin.com/in/thomas-moerman/">LinkedIn</a></li>
-    <li><a href="mailto:thomas.moerman@forenoon.eu">thomas.moerman@forenoon.eu</a></li>
-  </ul>
+<section id="contact" class="sec contact" aria-labelledby="contact-h">
+  <div class="sec-index"><div><span class="no" aria-hidden="true">04</span><h2 id="contact-h">contact</h2></div></div>
+  <div class="sec-body">
+    <ul>
+      <li><a href="https://github.com/thomas-moerman"><span class="label">code</span><span class="v">GitHub</span><span class="go" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://www.linkedin.com/in/thomas-moerman/"><span class="label">work</span><span class="v">LinkedIn</span><span class="go" aria-hidden="true">↗</span></a></li>
+      <li><a href="mailto:thomas.moerman@forenoon.eu"><span class="label">mail</span><span class="v">thomas.moerman@forenoon.eu</span><span class="go" aria-hidden="true">→</span></a></li>
+    </ul>
+  </div>
 </section>

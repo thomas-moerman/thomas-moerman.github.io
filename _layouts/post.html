@@ -1,9 +1,17 @@
 ---
 layout: default
 ---
-<article class="section wrap post">
-  <p class="label"><a href="{{ '/' | relative_url }}#notes"><span aria-hidden="true">←</span> notes</a></p>
-  <p class="label">note / {{ page.date | date: "%d.%m.%Y" }}</p>
-  <h1>{{ page.title }}</h1>
-  <div class="prose">{{ content }}</div>
+{% assign w = content | strip_html | number_of_words | plus: 199 | divided_by: 200 | at_least: 1 %}
+<article class="sec" aria-labelledby="post-h">
+  <div class="sec-index"><div><span class="no" aria-hidden="true">03</span><a class="lbl" href="{{ '/' | relative_url }}#notes">notes</a></div></div>
+  <div class="sec-body">
+    <div class="about-head">
+      <span class="meta label">{{ page.date | date: "%d.%m.%Y" }} / {{ w }} min</span>
+      <h1 id="post-h" style="view-transition-name:note-{{ page.date | date: '%Y%m%d' }}-{{ page.slug }}">{{ page.title }}</h1>
+    </div>
+    <div class="prose">{{ content }}</div>
+    <ul class="contact back">
+      <li><a href="{{ '/' | relative_url }}#notes"><span class="v">← all notes</span></a></li>
+    </ul>
+  </div>
 </article>

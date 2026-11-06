@@ -11,22 +11,32 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=DM+Mono:wght@400;500&family=Familjen+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
-<body>
+<body id="top">
 <a class="skip" href="#main">Skip to content</a>
-<header class="site-header wrap">
-  <a class="logo" href="{{ '/' | relative_url }}" aria-label="t/m thomas moerman, home"><span class="logo-tm">t/m</span><span class="logo-name">thomas<br>moerman</span></a>
-  <nav aria-label="Main" class="label">
-    <a href="{{ '/' | relative_url }}#about">about</a>
-    <a href="{{ '/' | relative_url }}#work">work</a>
-    <a href="{{ '/' | relative_url }}#notes">notes</a>
-    <a href="{{ '/' | relative_url }}#contact">contact</a>
-  </nav>
+<header class="site-header">
+  <div class="sheet hdr">
+    <a class="logo" href="{{ '/' | relative_url }}" aria-label="t/m thomas moerman, home"><span class="mk"><b>t/m</b><span>thomas<br>moerman</span></span></a>
+    <nav class="nav label" aria-label="Main">
+      <a href="{{ '/' | relative_url }}#about"><span class="n" aria-hidden="true">01</span>about</a>
+      <a href="{{ '/' | relative_url }}#work"><span class="n" aria-hidden="true">02</span>work</a>
+      <a href="{{ '/' | relative_url }}#notes"><span class="n" aria-hidden="true">03</span>notes</a>
+      <a href="{{ '/' | relative_url }}#contact"><span class="n" aria-hidden="true">04</span>contact</a>
+    </nav>
+    <div class="progress" aria-hidden="true"></div>
+  </div>
 </header>
 <main id="main">
+<div class="sheet">
 {{ content }}
+</div>
 </main>
-<footer class="site-footer">
-  <div class="wrap"><span class="label">thomas/moerman</span><span class="label">© 2026</span></div>
+<footer class="site-footer on-blue">
+  <div class="sheet tblock">
+    <a class="logo" href="{{ '/' | relative_url }}" aria-label="t/m thomas moerman, home"><span class="mk"><b>t<i class="sl">/</i>m</b><span>thomas<br>moerman</span></span></a>
+    <span class="name label">thomas/moerman</span>
+    <span class="yr label">© 2026</span>
+    <a class="up label" href="#top">back to top <i aria-hidden="true">↑</i></a>
+  </div>
 </footer>
 </body>
 </html>
