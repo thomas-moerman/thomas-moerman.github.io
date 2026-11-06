@@ -27,7 +27,6 @@ a:focus-visible{outline:3px solid var(--deep);outline-offset:3px}
 .hero{background:var(--blue);color:var(--anise);padding:3rem 0 7rem;clip-path:polygon(0 0,100% 0,100% calc(100% - 7rem),calc(100% - 3.264rem) 100%,0 100%)}
 @media(min-width:900px){.hero{padding:5rem 0 7rem}}
 .hero-row{display:flex;flex-direction:column;gap:1.5rem;margin-top:2rem;align-items:flex-start}
-.lead{margin:0;max-width:620px}
 @media(min-width:900px){.hero-row{flex-direction:row;justify-content:space-between;align-items:center}}
 .btn{display:inline-block;background:var(--anise);color:var(--blue);padding:1rem 1.5rem;text-decoration:none}
 .btn:hover{background:var(--pale)}
