@@ -39,7 +39,7 @@ a:focus-visible{outline:3px solid var(--deep);outline-offset:3px}
 .cards,.slashes{list-style:none;margin:0;padding:0}
 .cards{display:grid;gap:1.25rem}
 @media(min-width:900px){.cards{grid-template-columns:repeat(auto-fit,minmax(18rem,1fr))}.card h3{font-size:2.25rem}.card-body{font-size:1.25rem}.section{padding-top:6rem;padding-bottom:6rem}}
-.card{border:2px solid var(--blue);background:var(--pale);display:flex;flex-direction:column}
+.card{border:2px solid var(--blue);background:var(--pale);color:var(--blue);display:flex;flex-direction:column}
 .alt .card{background:var(--anise)}
 .card-head{background:var(--blue);color:var(--anise);padding:.5rem 1rem}
 .card-body{padding:1rem;display:flex;flex-direction:column;gap:.75rem;font-size:1.0625rem;line-height:1.45;flex:1}

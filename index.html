@@ -3,7 +3,7 @@ layout: default
 ---
 <section class="hero">
   <div class="wrap">
-    <h1>from idea<br>to done.</h1>
+    <h1>not always useful.<br>always cool.</h1>
     <div class="hero-row">
       <p class="lead">Projects, notes and experiments by Thomas Moerman.</p>
       <a class="btn label" href="#work">See the work <span aria-hidden="true">→</span></a>
@@ -11,8 +11,25 @@ layout: default
   </div>
 </section>
 
-<section id="work" class="section wrap" aria-labelledby="work-h">
-  <h2 id="work-h" class="label">01 / work</h2>
+<section id="about" class="section" aria-labelledby="about-h">
+  <div class="wrap">
+    <h2 id="about-h" class="label">01 / about</h2>
+    <div class="prose">
+      <h3>Hi, I'm Thomas.</h3>
+      <p>I often wonder how I ended up in tech, and the furthest back I can trace it is the day we got our first desktop at home. It didn’t take long before I started wondering why this PC was so slow at running the games I wanted to play, and why our internet was so bad.</p>
+      <p>For the second one, help arrived in the form of an older man, a colleague of my father who claimed to be “an IT guy”. I still remember the long hairs growing out of his ears and how he kept pulling at them while he stared at the screen. I watched him click “Troubleshoot internet connection” ten times in a row, as if the eleventh time might finally work. It never did. He left without fixing anything, and it frustrated me so much that I sat down and started digging into it myself, until I fixed it.</p>
+      <p>That moment stuck with me. Fixing our internet wasn’t such a big deal, but it left me with a fascination for how the digital world around me actually worked, and with the feeling that clicking until something works is never enough. I wanted to understand what was happening underneath, and that feeling has never really left.</p>
+      <p>School was a different story. I wasn’t a good student when I was young. For a long time I blamed my environment, but at the end of the day it was me, and that is what pushed me towards a job in the military first. I enjoyed it for a while, but at some point I felt I no longer fit in that environment, and I decided to leave. I didn’t leave empty-handed, though. The army gave me a strong ethical compass and a discipline that I still carry with me.</p>
+      <p>Leaving gave me a renewed energy I hadn’t felt before, and for the first time I turned out to be a good student. I went on to get an MSc in Artificial Intelligence, which was pretty cool, and it brought me right back to that old urge to understand how things work underneath.</p>
+      <p>I’ve never been a great developer, and I’ll be honest about that. What I can do is make AI do great things, and I firmly believe in its potential. I think we have only scratched the surface of what it can do, even if not everyone sees or feels that yet.</p>
+      <p>Today I’m the CTO of Forenoon, a small startup. I want to build great things, keep learning, and help others along the way. Pretty much what that kid behind our first desktop wanted too, just with better internet now.</p>
+    </div>
+  </div>
+</section>
+
+<section id="work" class="section alt" aria-labelledby="work-h">
+  <div class="wrap">
+  <h2 id="work-h" class="label">02 / work</h2>
   <ul class="cards">
     {% for p in site.data.projects %}
     <li class="card">
@@ -25,11 +42,12 @@ layout: default
     </li>
     {% endfor %}
   </ul>
+  </div>
 </section>
 
-<section id="notes" class="section alt" aria-labelledby="notes-h">
+<section id="notes" class="section field" aria-labelledby="notes-h">
   <div class="wrap">
-    <h2 id="notes-h" class="label">02 / notes</h2>
+    <h2 id="notes-h" class="label">03 / notes</h2>
     {% if site.posts.size > 0 %}
     <ul class="cards">
       {% for post in site.posts %}
@@ -42,22 +60,6 @@ layout: default
     {% else %}
     <p class="empty">Nothing here yet. Notes will show up here when I write them.</p>
     {% endif %}
-  </div>
-</section>
-
-<section id="about" class="section field" aria-labelledby="about-h">
-  <div class="wrap">
-    <h2 id="about-h" class="label">03 / about</h2>
-    <div class="prose">
-      <h3>Hi, I'm Thomas.</h3>
-      <p>I often wonder how I ended up in tech, and the furthest back I can trace it is the day we got our first desktop at home. It didn’t take long before I started wondering why this PC was so slow at running the games I wanted to play, and why our internet was so bad.</p>
-      <p>For the second one, help arrived in the form of an older man, a colleague of my father who claimed to be “an IT guy”. I still remember the long hairs growing out of his ears and how he kept pulling at them while he stared at the screen. I watched him click “Troubleshoot internet connection” ten times in a row, as if the eleventh time might finally work. It never did. He left without fixing anything, and it frustrated me so much that I sat down and started digging into it myself, until I fixed it.</p>
-      <p>That moment stuck with me. Fixing our internet wasn’t such a big deal, but it left me with a fascination for how the digital world around me actually worked, and with the feeling that clicking until something works is never enough. I wanted to understand what was happening underneath, and that feeling has never really left.</p>
-      <p>School was a different story. I wasn’t a good student when I was young. For a long time I blamed my environment, but at the end of the day it was me, and that is what pushed me towards a job in the military first. I enjoyed it for a while, but at some point I felt I no longer fit in that environment, and I decided to leave. I didn’t leave empty-handed, though. The army gave me a strong ethical compass and a discipline that I still carry with me.</p>
-      <p>Leaving gave me a renewed energy I hadn’t felt before, and for the first time I turned out to be a good student. I went on to get an MSc in Artificial Intelligence, which was pretty cool, and it brought me right back to that old urge to understand how things work underneath.</p>
-      <p>I’ve never been a great developer, and I’ll be honest about that. What I can do is make AI do great things, and I firmly believe in its potential. I think we have only scratched the surface of what it can do, even if not everyone sees or feels that yet.</p>
-      <p>Today I’m the CTO of Forenoon, a small startup. I want to build great things, keep learning, and help others along the way. Pretty much what that kid behind our first desktop wanted too, just with better internet now.</p>
-    </div>
   </div>
 </section>
 
