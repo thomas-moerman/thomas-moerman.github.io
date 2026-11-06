@@ -1,0 +1,10 @@
+- title: Map-building robot
+  label: project / matlab
+  text: A simulated Pioneer 3-DX robot in CoppeliaSim that maps a room with LiDAR, comparing manual teleoperation with autonomous wandering. SLAM, A* path planning and pure pursuit.
+  tags: [SLAM, MATLAB]
+  url: https://github.com/thomas-moerman/Behavior_based_Map-Building_Robotic_System
+- title: Predicting CO₂ emissions
+  label: project / python
+  text: Random Forest, XGBoost and SVM compared on London emissions data (LAEI 2013), scored on R² and mean squared error.
+  tags: [MACHINE LEARNING, NOTEBOOKS]
+  url: https://github.com/thomas-moerman/Predict_Emmisions

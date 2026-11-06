@@ -1,0 +1,71 @@
+---
+layout: default
+---
+<section class="hero">
+  <div class="wrap">
+    <h1>from idea<br>to done.</h1>
+    <div class="hero-row">
+      <p class="lead">Personal work by Thomas Moerman: projects, notes and experiments.</p>
+      <a class="btn label" href="#work">See the work <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="work" class="section wrap" aria-labelledby="work-h">
+  <h2 id="work-h" class="label">01 / work</h2>
+  <ul class="cards">
+    {% for p in site.data.projects %}
+    <li class="card">
+      <p class="card-head label">{{ p.label }}</p>
+      <div class="card-body">
+        <h3><a href="{{ p.url }}">{{ p.title }}</a></h3>
+        <p>{{ p.text }}</p>
+        <p class="tags label">{% for t in p.tags %}<span>{{ t }}</span>{% endfor %}</p>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section id="notes" class="section alt" aria-labelledby="notes-h">
+  <div class="wrap">
+    <h2 id="notes-h" class="label">02 / notes</h2>
+    {% if site.posts.size > 0 %}
+    <ul class="cards">
+      {% for post in site.posts %}
+      <li class="card">
+        <p class="card-head label">note / {{ post.date | date: "%d.%m.%Y" }}</p>
+        <div class="card-body"><h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3></div>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p class="empty">Nothing here yet. Notes will show up here when I write them.</p>
+    {% endif %}
+  </div>
+</section>
+
+<section id="about" class="section field" aria-labelledby="about-h">
+  <div class="wrap">
+    <h2 id="about-h" class="label">03 / about</h2>
+    <div class="prose">
+      <h3>Hi, I'm Thomas.</h3>
+      <p>I often wonder how I ended up in tech, and the furthest back I can trace it is the day we got our first desktop at home. It didn’t take long before I started wondering why this PC was so slow at running the games I wanted to play, and why our internet was so bad.</p>
+      <p>For the second one, help arrived in the form of an older man, a colleague of my father who claimed to be “an IT guy”. I still remember the long hairs growing out of his ears and how he kept pulling at them while he stared at the screen. I watched him click “Troubleshoot internet connection” ten times in a row, as if the eleventh time might finally work. It never did. He left without fixing anything, and it frustrated me so much that I sat down and started digging into it myself, until I fixed it.</p>
+      <p>That moment stuck with me. Fixing our internet wasn’t such a big deal, but it left me with a fascination for how the digital world around me actually worked, and with the feeling that clicking until something works is never enough. I wanted to understand what was happening underneath, and that feeling has never really left.</p>
+      <p>School was a different story. I wasn’t a good student when I was young. For a long time I blamed my environment, but at the end of the day it was me, and that is what pushed me towards a job in the military first. I enjoyed it for a while, but at some point I felt I no longer fit in that environment, and I decided to leave.</p>
+      <p>Leaving gave me a renewed energy I hadn’t felt before, and for the first time I turned out to be a good student. I went on to get an MSc in Artificial Intelligence, which was pretty cool, and it brought me right back to that old urge to understand how things work underneath.</p>
+      <p>I’ve never been a great developer, and I’ll be honest about that. What I can do is make AI do great things, and I firmly believe in its potential. I think we have only scratched the surface of what it can do, even if not everyone sees or feels that yet.</p>
+      <p>Today I’m the CTO of Forenoon, a small startup. I want to build great things, keep learning, and help others along the way. Pretty much what that kid behind our first desktop wanted too, just with better internet now.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section wrap" aria-labelledby="contact-h">
+  <h2 id="contact-h" class="label">04 / contact</h2>
+  <ul class="slashes">
+    <li><a href="https://github.com/thomas-moerman">GitHub</a></li>
+    <li><a href="https://www.linkedin.com/in/thomas-moerman/">LinkedIn</a></li>
+    <li><a href="mailto:thomas.moerman@forenoon.eu">thomas.moerman@forenoon.eu</a></li>
+  </ul>
+</section>

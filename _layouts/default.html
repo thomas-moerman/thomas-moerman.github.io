@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'en' }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page.title and page.layout == 'post' %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+<meta name="description" content="{{ page.excerpt | strip_html | strip_newlines | truncate: 155 | escape | default: site.description }}">
+<link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=DM+Mono:wght@400;500&family=Familjen+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header wrap">
+  <a class="logo" href="{{ '/' | relative_url }}" aria-label="t/m thomas moerman, home"><span class="logo-tm">t/m</span><span class="logo-name">thomas<br>moerman</span></a>
+  <nav aria-label="Main" class="label">
+    <a href="{{ '/' | relative_url }}#work">work</a>
+    <a href="{{ '/' | relative_url }}#notes">notes</a>
+    <a href="{{ '/' | relative_url }}#about">about</a>
+    <a href="{{ '/' | relative_url }}#contact">contact</a>
+  </nav>
+</header>
+<main id="main">
+{{ content }}
+</main>
+<footer class="site-footer">
+  <div class="wrap"><span class="label">thomas/moerman</span><span class="label">© 2026</span></div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,62 @@
+:root{--blue:#00539C;--anise:#F4E3B5;--deep:#00325E;--blue40:#99BAD7;--pale:#FAF3DE;--gutter:16px;--max:1200px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:1rem}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--anise);color:var(--blue);font:400 1.125rem/1.5 "Familjen Grotesk",Arial,sans-serif}
+@media(min-width:900px){body{font-size:1.5rem;line-height:1.42}}
+h1,h2,h3,.logo{font-family:"Bricolage Grotesque",Arial,sans-serif;text-transform:lowercase;letter-spacing:-.02em;margin:0}
+h1{font-weight:700;line-height:1;font-size:clamp(3rem,13vw,7rem)}
+h3{font-weight:700;line-height:1.1;font-size:1.5rem}
+a{color:inherit;text-decoration-thickness:2px;text-underline-offset:.2em}
+a:focus-visible{outline:3px solid var(--deep);outline-offset:3px}
+.field a:focus-visible,.hero a:focus-visible,.site-footer a:focus-visible,.btn:focus-visible{outline-color:var(--anise)}
+.wrap{max-width:var(--max);margin:0 auto;padding-left:var(--gutter);padding-right:var(--gutter)}
+.label{font-family:"DM Mono","Courier New",monospace;font-size:.875rem;line-height:1.45;letter-spacing:1px;text-transform:uppercase;font-weight:500;margin:0}
+@media(min-width:900px){.label{font-size:1rem}}
+.skip{position:absolute;left:var(--gutter);top:-4rem;background:var(--blue);color:var(--anise);padding:.5rem 1rem;z-index:10}
+.skip:focus{top:.5rem}
+.site-header{display:flex;flex-wrap:wrap;gap:2.25rem 2rem;justify-content:space-between;align-items:center;padding-top:2.25rem;padding-bottom:2.25rem}
+@media(min-width:900px){.site-header{row-gap:2.75rem;padding-top:2.75rem;padding-bottom:2.75rem}}
+.logo{display:flex;align-items:flex-end;gap:.5rem;text-decoration:none;text-transform:none;line-height:1}
+.logo-tm{font-weight:800;font-size:3rem}
+.logo-name{font-weight:700;font-size:.9rem;line-height:.95;padding-bottom:.5rem;white-space:nowrap}
+@media(min-width:900px){.logo-tm{font-size:3.75rem}.logo-name{font-size:1.125rem;padding-bottom:.625rem}}
+.site-header nav{display:flex;gap:1.5rem}
+.site-header nav a{text-decoration:none;padding:.25rem 0}
+.site-header nav a:hover{text-decoration:underline}
+.hero{background:var(--blue);color:var(--anise);padding:3rem 0 7rem;clip-path:polygon(0 0,100% 0,100% calc(100% - 7rem),calc(100% - 3.264rem) 100%,0 100%)}
+@media(min-width:900px){.hero{padding:5rem 0 7rem}}
+.hero-row{display:flex;flex-direction:column;gap:1.5rem;margin-top:2rem;align-items:flex-start}
+.lead{margin:0;max-width:620px}
+@media(min-width:900px){.hero-row{flex-direction:row;justify-content:space-between;align-items:center}}
+.btn{display:inline-block;background:var(--anise);color:var(--blue);padding:1rem 1.5rem;text-decoration:none}
+.btn:hover{background:var(--pale)}
+.section{padding-top:3.5rem;padding-bottom:3.5rem}
+.section>.label,.section .wrap>.label,.wrap>h2.label{margin-bottom:1.5rem}
+.section>h2.label{margin-bottom:1.5rem}
+.alt{background:var(--pale)}
+.field{background:var(--blue);color:var(--anise)}
+.cards,.slashes{list-style:none;margin:0;padding:0}
+.cards{display:grid;gap:1.25rem}
+@media(min-width:900px){.cards{grid-template-columns:repeat(auto-fit,minmax(18rem,1fr))}.card h3{font-size:2.25rem}.card-body{font-size:1.25rem}.section{padding-top:6rem;padding-bottom:6rem}}
+.card{border:2px solid var(--blue);background:var(--pale);display:flex;flex-direction:column}
+.alt .card{background:var(--anise)}
+.card-head{background:var(--blue);color:var(--anise);padding:.5rem 1rem}
+.card-body{padding:1rem;display:flex;flex-direction:column;gap:.75rem;font-size:1.0625rem;line-height:1.45;flex:1}
+.card-body p{margin:0}
+.tags{margin-top:auto!important;display:flex;flex-wrap:wrap;gap:.5rem}
+.tags span{border:2px solid var(--blue);padding:.125rem .625rem}
+.prose{max-width:46rem;overflow-wrap:anywhere}
+.prose img{max-width:100%;height:auto}
+.prose pre{overflow-x:auto}
+#about h3{font-size:2rem;margin-bottom:1.5rem}
+@media(min-width:900px){#about h3{font-size:2.5rem}}
+.prose p{margin:0 0 1.25rem}
+.empty{margin:0}
+.slashes li{padding-left:1.5em;position:relative;margin-bottom:.5rem}
+.slashes li::before{content:"/" / "";position:absolute;left:0;color:var(--blue40);font-weight:700}
+.slashes a{font-weight:500}
+.post h1{margin:1rem 0 2rem}
+.post .label{margin-bottom:.5rem}
+.site-footer{background:var(--deep);color:var(--anise);padding:1.5rem 0}
+.site-footer .wrap{display:flex;justify-content:space-between}

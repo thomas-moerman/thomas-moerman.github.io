@@ -1,0 +1,9 @@
+title: thomas/moerman
+description: "Personal work by Thomas Moerman: projects, notes and experiments."
+url: https://thomas-moerman.github.io
+lang: en
+permalink: /notes/:year/:month/:day/:title/
+defaults:
+  - scope: {path: "", type: posts}
+    values: {layout: post}
+exclude: [README.md, .gitignore]
