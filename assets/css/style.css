@@ -26,6 +26,10 @@ a:focus-visible{outline:3px solid var(--deep);outline-offset:3px}
 .site-header nav a:hover{text-decoration:underline}
 .hero{background:var(--blue);color:var(--anise);padding:3rem 0 7rem;clip-path:polygon(0 0,100% 0,100% calc(100% - 7rem),calc(100% - 3.264rem) 100%,0 100%)}
 @media(min-width:900px){.hero{padding:5rem 0 7rem}}
+.status{margin:1.5rem 0 0;font-size:1.25rem;max-width:40rem}
+/* one restrained motion: the heading gets heavier and tighter as the hero scrolls away */
+@keyframes hero-squeeze{to{font-weight:800;letter-spacing:-.05em}}
+@supports (animation-timeline:view()){@media(prefers-reduced-motion:no-preference){.hero h1{animation:hero-squeeze linear both;animation-timeline:view();animation-range:exit 0% exit 100%}}}
 .hero-row{display:flex;flex-direction:column;gap:1.5rem;margin-top:2rem;align-items:flex-start}
 @media(min-width:900px){.hero-row{flex-direction:row;justify-content:space-between;align-items:center}}
 .btn{display:inline-block;background:var(--anise);color:var(--blue);padding:1rem 1.5rem;text-decoration:none}
