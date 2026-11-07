@@ -3,6 +3,8 @@ layout: default
 ---
 <section class="hero" aria-labelledby="hero-h">
   <div class="hero-title">
+    <input class="sr motion-sw" type="checkbox" role="switch" id="motion" checked>
+    <label class="motion label" for="motion"><span class="sr">background </span>motion <span class="st" aria-hidden="true"></span></label>
     <div class="hero-art" aria-hidden="true">
       <svg viewBox="0 0 1280 320" preserveAspectRatio="xMaxYMid slice" focusable="false">
         <defs><pattern id="sq" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#99BAD7" stroke-width="2"/></pattern></defs>
@@ -10,6 +12,7 @@ layout: default
         <!-- baseline and the slash's construction line -->
         <line class="base" x1="800" y1="288" x2="1280" y2="288" stroke="#00539C" stroke-width="2" stroke-dasharray="6 6"/>
         <line class="cons" x1="1056" y1="288" x2="1213.6" y2="-49.9" stroke="#00539C" stroke-width="2" stroke-dasharray="6 6"/>
+        <line class="needle" x1="1056" y1="288" x2="1184" y2="288" stroke="#00539C" stroke-width="2" stroke-dasharray="6 6" opacity="0"/>
         <!-- the slash: 64 wide, 256 high, 65° -->
         <g class="move"><polygon class="slash" points="992,288 1111.4,32 1175.4,32 1056,288" fill="#00539C"/></g>
         <!-- angle -->
@@ -17,8 +20,6 @@ layout: default
         <path class="pivot" d="M1046 288h20M1056 278v20" stroke="#00539C" stroke-width="2"/>
         <g class="stamp l65"><rect x="1158" y="214" width="56" height="30" fill="#F4E3B5"/>
         <text x="1166" y="236" font-size="18">65°</text></g>
-        <g class="stamp lfig"><rect x="770" y="40" width="226" height="32" fill="#F4E3B5"/>
-        <text x="780" y="62" font-size="16">FIG. 01 / THE SLASH</text></g>
       </svg>
     </div>
     <h1 id="hero-h"><span class="w" style="--i:0"><span>always</span></span> <span class="w" style="--i:1"><span>building.</span></span> <span class="w" style="--i:2"><span>occasionally</span></span> <span class="w" style="--i:3"><span>useful.</span></span></h1>
@@ -35,13 +36,13 @@ layout: default
   <div class="sec-body">
     <div class="about-head"><h3>Hi, I’m Thomas.</h3></div>
     <ol class="story">
-      <li><span class="note label" style="--c:13">first desktop</span><p>I often wonder how I ended up in tech, and the furthest back I can trace it is the day we got our first desktop at home. It didn’t take long before I started wondering why this PC was so slow at running the games I wanted to play, and why our internet was so bad.</p></li>
-      <li><span class="note label" style="--c:10">the it guy</span><p>For the second one, help arrived in the form of an older man, a colleague of my father who claimed to be “an IT guy”. I still remember the long hairs growing out of his ears and how he kept pulling at them while he stared at the screen. I watched him click “Troubleshoot internet connection” ten times in a row, as if the eleventh time might finally work. It never did. He left without fixing anything, and it frustrated me so much that I sat down and started digging into it myself, until I fixed it.</p></li>
-      <li><span class="note label" style="--c:10">underneath</span><p>That moment stuck with me. Fixing our internet wasn’t such a big deal, but it left me with a fascination for how the digital world around me actually worked, and with the feeling that clicking until something works is never enough. I wanted to understand what was happening underneath, and that feeling has never really left.</p></li>
-      <li><span class="note label" style="--c:8">the army</span><p>School was a different story. I wasn’t a good student when I was young. For a long time I blamed my environment, but at the end of the day it was me, and that is what pushed me towards a job in the military first. I enjoyed it for a while, but at some point I felt I no longer fit in that environment, and I decided to leave. I didn’t leave empty-handed, though. The army gave me a strong ethical compass and a discipline that I still carry with me.</p></li>
-      <li><span class="note label" style="--c:6">msc ai</span><p>Leaving gave me a renewed energy I hadn’t felt before, and for the first time I turned out to be a good student. I went on to get an MSc in Artificial Intelligence, which was pretty cool, and it brought me right back to that old urge to understand how things work underneath.</p></li>
-      <li><span class="note label" style="--c:8">honestly</span><p>I’ve never been a great developer, and I’ll be honest about that. What I can do is make AI do great things, and I firmly believe in its potential. I think we have only scratched the surface of what it can do, even if not everyone sees or feels that yet.</p></li>
-      <li><span class="note label" style="--c:5">today</span><p>Today I’m the CTO of Forenoon, a small startup. I want to build great things, keep learning, and help others along the way. Pretty much what that kid behind our first desktop wanted too, just with better internet now.</p></li>
+      <li><span class="note label" style="--c:13">first desktop</span><p>I can trace it all back to the day we got our first desktop at home. Within weeks I was asking questions nobody in the house could answer. Why did this PC choke on every game I wanted to play? And why was our internet so painfully slow?</p></li>
+      <li><span class="note label" style="--c:10">the it guy</span><p>Help with the internet arrived in the form of an older colleague of my father, a man who introduced himself as “an IT guy”. I can still picture the long hairs growing out of his ears and the way he tugged at them while he stared at the screen. He clicked “Troubleshoot internet connection” ten times in a row, as if the eleventh try might be the lucky one. It never was. He left without fixing a thing, and that annoyed me so much that I sat down, started digging, and didn’t stop until it worked.</p></li>
+      <li><span class="note label" style="--c:10">underneath</span><p>Fixing our internet was no big deal. What it left behind was. I suddenly wanted to know how the digital world around me actually worked, and I had learned that clicking until something works is never enough. I wanted to see what happens underneath. I still do.</p></li>
+      <li><span class="note label" style="--c:8">the army</span><p>School was another story. I was not a good student. For years I blamed my surroundings, but the truth is that it was me, and that is how I ended up in the military. I liked it for a while, until I felt I no longer belonged there, so I left. I didn’t leave empty-handed, though. The army gave me a strong ethical compass and a discipline I still rely on every day.</p></li>
+      <li><span class="note label" style="--c:6">msc ai</span><p>Leaving gave me an energy I hadn’t felt before, and for the first time in my life I turned out to be a good student. I went on to earn an MSc in Artificial Intelligence, and it led me straight back to that old urge to understand how things work underneath.</p></li>
+      <li><span class="note label" style="--c:8">honestly</span><p>I have never been a great developer, and I won’t pretend otherwise. What I am good at is getting AI to do great things, and I believe in it completely. We have barely scratched the surface of what it can do, even if not everyone sees it yet.</p></li>
+      <li><span class="note label" style="--c:5">today</span><p>Today I’m the CTO of Forenoon, a small startup. I want to build great things, keep learning, and help others along the way. That is pretty much what the kid behind our first desktop wanted too. The internet is just a lot better now.</p></li>
     </ol>
   </div>
 </section>
