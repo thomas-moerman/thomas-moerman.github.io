@@ -68,8 +68,7 @@ ul,ol{list-style:none;margin:0;padding:0}
 
 /* hero: title cell (drawing + headline) and a title-block column (grid + now + action) */
 .hero{display:grid;border-bottom:var(--line)}
-.hero-title{position:relative;display:flex;flex-direction:column;padding-bottom:var(--s5)}
-.motion-sw,.motion{display:none}             /* shown only where the loop can run */
+.hero-title{display:flex;flex-direction:column;padding-bottom:var(--s5)}
 .hero-art{height:220px;border-bottom:var(--soft);margin-bottom:var(--s5);overflow:clip}
 .hero-art svg{display:block;width:100%;height:100%}
 .hero-art text{font-family:var(--mono);font-weight:500;letter-spacing:.08em;fill:var(--blue)}
@@ -300,22 +299,11 @@ ul,ol{list-style:none;margin:0;padding:0}
   .site-footer{view-timeline-name:--foot}
   .tblock .sl{animation:m-wipe-up linear both;animation-timeline:--foot;animation-range:entry 15% entry 75%}
 
-  /* 5. AMBIENT: every 12 s the drawing re-measures its 65°. One gesture, then 9 s still. The switch removes it. */
-  .motion-sw{display:inline-block}
-  .motion{display:inline-flex;align-items:center;gap:8px;position:absolute;z-index:1;top:var(--s2);left:var(--g);
-    min-height:32px;padding:0 10px;background:var(--anise);border:var(--line);cursor:pointer;
-    transition:background-color var(--t-1) var(--e-out);animation:m-fade-up .6s var(--e-settle) 1.7s both}
-  .motion:hover{background:var(--pale)}
-  .motion-sw:focus-visible+.motion{outline:3px solid var(--deep);outline-offset:2px}
-  .motion::after{content:"";width:.62em;height:.62em;border:2px solid currentColor}
-  .motion-sw:checked+.motion::after{background:currentColor}
-  .motion .st::before{content:"off"}
-  .motion-sw:checked+.motion .st::before{content:"on"}
-
+  /* 5. AMBIENT: every 12 s the drawing re-measures its 65°. One gesture, then 9 s still. */
   .hero-art .needle{transform-box:view-box;transform-origin:1056px 288px}
-  .motion-sw:checked~.hero-art .arc{animation:m-sweep var(--t-2) var(--e-draw) 1.25s both,a-arc var(--amb) linear var(--amb-in) infinite}
-  .motion-sw:checked~.hero-art .needle{animation:a-needle var(--amb) linear var(--amb-in) infinite}
-  .motion-sw:checked~.hero-art .l65{animation:m-stamp var(--t-1) var(--e-out) 1.45s both,a-tick var(--amb) linear var(--amb-in) infinite}
+  .hero-art .arc{animation:m-sweep var(--t-2) var(--e-draw) 1.25s both,a-arc var(--amb) linear var(--amb-in) infinite}
+  .hero-art .needle{animation:a-needle var(--amb) linear var(--amb-in) infinite}
+  .hero-art .l65{animation:m-stamp var(--t-1) var(--e-out) 1.45s both,a-tick var(--amb) linear var(--amb-in) infinite}
 }}
 
 /* 4. PAGE TO POST: cross-document view transition (progressive; ignored where unsupported) */
