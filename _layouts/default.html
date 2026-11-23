@@ -13,32 +13,35 @@
 <meta property="og:url" content="{{ page.url | absolute_url }}">
 <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
 <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=DM+Mono:wght@500&family=Familjen+Grotesk:wght@400..700&display=swap" rel="stylesheet">
+<link rel="preload" href="{{ '/assets/fonts/bricolage.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ '/assets/fonts/familjen.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="hdr">
-  <div class="wrap hdr-in">
-    <a class="logo" href="{{ '/' | relative_url }}" aria-label="t/m, Thomas Moerman, home"><b>t/m</b><span class="nm">Thomas Moerman</span></a>
-    <nav class="nav" aria-label="Main">
-      <a href="{{ '/#services' | relative_url }}">Services</a>
-      <a href="{{ '/notes/' | relative_url }}">Notes</a>
-      <a href="{{ '/about/' | relative_url }}">About</a>
-      <a href="{{ '/#contact' | relative_url }}">Contact</a>
+<header class="site">
+  <div class="wrap bar">
+    <a class="logo" href="{{ '/' | relative_url }}" aria-label="t/m, Thomas Moerman, home">t/m</a>
+    <nav aria-label="Main">
+      <a href="{{ '/notes/' | relative_url }}"{% if page.url == '/notes/' %} aria-current="page"{% elsif page.url contains '/notes/' %} aria-current="true"{% endif %}>Notes</a>
+      <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
+      <a href="{{ site.calendar_url }}">Book a call</a>
     </nav>
   </div>
 </header>
-<main id="main" class="wrap">
+<main id="main">
 {{ content }}
 </main>
-<footer class="ftr">
-  <div class="wrap ftr-in">
-    <a class="logo logo-sm" href="{{ '/' | relative_url }}" aria-label="t/m, Thomas Moerman, home"><b>t/m</b></a>
-    <p class="legal">{{ site.company }}</p>
-    <p class="copy">© {{ site.time | date: "%Y" }} Thomas Moerman</p>
+<footer class="site-foot on-dark">
+  <div class="wrap">
+    <div class="foot">
+      <p>{{ site.company }}</p>
+      <ul>
+        <li><a class="link" href="{{ site.linkedin }}">LinkedIn</a></li>
+        <li><a class="link" href="{{ site.github }}">GitHub</a></li>
+        <li>© {{ site.time | date: "%Y" }} Thomas Moerman</li>
+      </ul>
+    </div>
   </div>
 </footer>
 </body>

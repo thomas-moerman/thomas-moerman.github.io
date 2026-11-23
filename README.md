@@ -26,15 +26,15 @@ Push it, and the note shows up under **Notes** on the site within a minute.
 
 ## Contact details and facts
 
-Email, booking link, company line, client names and the open-source link live in
-`_config.yml`. Empty `clients` or `open_source` hide their row on the home page.
+Email, booking link, company line, LinkedIn and GitHub live in `_config.yml`.
 
 ## How it's built
 
 - [Jekyll](https://jekyllrb.com), built by GitHub Pages itself. No build step, no plugins.
-- Design "Letter": one reading column, no JavaScript, no motion beyond a 150 ms hover.
+- Design "Drawn to scale": one idea per screen, no JavaScript. Design in Figma (t/m website).
 - Styling follows the t/m brand guidelines: Princess Blue `#00539C`, Anise Flower `#F4E3B5`,
   Bricolage Grotesque for headings, Familjen Grotesk for text and DM Mono for labels.
+- Fonts are self-hosted under the SIL Open Font License, see assets/fonts/OFL.txt.
 - All styles are in `assets/css/style.css`; page layouts are in `_layouts/`, shared pieces in `_includes/`.
 
 To preview locally without installing Ruby:

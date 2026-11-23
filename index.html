@@ -1,78 +1,58 @@
 ---
 layout: default
-seo_title: t/m Thomas Moerman, AI agents for healthcare and pharma
+seo_title: Thomas Moerman · Crews of AI agents
 ---
 <section class="hero" aria-labelledby="h-hero">
-  <h1 id="h-hero">I build AI agents for healthcare and pharma that hold up under validation.</h1>
-  <div class="hero-sub">
-    <p>Independent AI architect, and CTO at Forenoon. I work with pharma companies and health-tech teams that need AI they can defend in an audit.</p>
-    <div class="ctas">
+  <div class="wrap">
+    <h1 id="h-hero" class="display">Hand off<br> the whole job.</h1>
+    <div class="act">
+      <p class="lead">Crews of AI agents that plan, build and check the work themselves. <span>You only decide.</span></p>
       <a class="btn" href="{{ site.calendar_url }}">Book a call</a>
-      <span class="alt">or email <a href="mailto:{{ site.email }}">{{ site.email }}</a></span>
     </div>
   </div>
 </section>
 
-<section id="services" class="sec" aria-labelledby="h-services">
-  <h2 id="h-services">Services</h2>
-  <div class="body">
-    <ul class="services">
-      <li>
-        <div class="svc-h"><h3>Agent Readiness Sprint</h3><p class="meta">2 weeks / fixed price</p></div>
-        <p>Two weeks to find out whether an AI agent can take on a real task in your process. You end with a working prototype or a plan your QA team can review, and an audit log of every step the agent took.</p>
-      </li>
-      <li>
-        <div class="svc-h"><h3>Fractional Chief AI Officer</h3><p class="meta">Monthly / 2 days a month</p></div>
-        <p>Senior AI leadership without a full-time hire. I set the AI roadmap with your management, review what gets built, and keep it inside GxP and the EU AI Act.</p>
-      </li>
-      <li>
-        <div class="svc-h"><h3>Technical due diligence</h3><p class="meta">For investors / per company</p></div>
-        <p>Before you invest in a health-AI startup, I check what the technology does today, how it is built, and whether it will survive MDR and GDPR scrutiny. You get a short written report in plain language.</p>
-      </li>
+<section class="proof on-dark" aria-labelledby="h-proof">
+  <div class="wrap">
+    <h2 id="h-proof" class="display"><span>More done every month,</span> <span>with the team you already have.</span></h2>
+    <p class="lead">Each month the crew takes on more of the work, and your people get more time for what only they can do.</p>
+  </div>
+</section>
+
+<section class="ways" aria-labelledby="h-ways">
+  <div class="wrap">
+    <h2 id="h-ways" class="display">Three ways in.</h2>
+    <ul>
+      <li><h3>Sprint.</h3><p>Two weeks. One job. A working crew at the end.</p></li>
+      <li><h3>Chief AI Officer.</h3><p>Two days a month, at your table.</p></li>
+      <li><h3>Due diligence.</h3><p>Know what you’re investing in.</p></li>
     </ul>
-    <p class="svc-note">Every engagement works within the rules that apply to you, from GxP validation and the EU AI Act to MDR and GDPR.</p>
   </div>
 </section>
 
-<section id="background" class="sec" aria-labelledby="h-background">
-  <h2 id="h-background">Background</h2>
-  <div class="body">
-    <dl class="facts">
-      <div><dt>Forenoon</dt><dd>Co-founder and CTO. We build agentic AI for healthcare.</dd></div>
-      <div><dt>Pharma systems</dt><dd>Hands-on Veeva work inside pharma companies. I know how validated systems are set up, changed and audited.</dd></div>
-      <div><dt>Education</dt><dd>MSc in Artificial Intelligence.</dd></div>
-      {% if site.clients.size > 0 %}<div><dt>Clients</dt><dd>{{ site.clients | join: ", " }}</dd></div>{% endif %}
-      {% if site.open_source and site.open_source != "" %}<div><dt>Open source</dt><dd>A tool for evaluating AI agents and keeping their audit log. <a href="{{ site.open_source }}">See it on GitHub</a></dd></div>{% endif %}
-    </dl>
-  </div>
-</section>
-
-<section id="notes" class="sec" aria-labelledby="h-notes">
-  <h2 id="h-notes">Notes</h2>
-  <div class="body">
-    <p class="intro">Short notes on building AI that holds up in regulated healthcare. New notes regularly.</p>
-    {% include notes-list.html limit=5 %}
-    {% if site.posts.size > 0 %}<p class="more"><a href="{{ '/notes/' | relative_url }}">All notes</a></p>{% endif %}
-  </div>
-</section>
-
-<section id="about" class="sec" aria-labelledby="h-about">
-  <h2 id="h-about">About</h2>
-  <div class="body">
-    <p>I started out fixing our family computer because the IT guy who came to help couldn’t. After a spell in the army I went back to school and earned an MSc in Artificial Intelligence. My strength is seeing how the pieces of a system fit together, and getting AI to do things most people assume it can’t. Today I’m CTO at Forenoon and take on a few clients of my own.</p>
-    <p class="more"><a href="{{ '/about/' | relative_url }}">Read the full story</a></p>
-  </div>
-</section>
-
-<section id="contact" class="sec" aria-labelledby="h-contact">
-  <h2 id="h-contact">Contact</h2>
-  <div class="body">
-    <p class="lead">The easiest way to start is a short call. Tell me what you want to build or check, and I’ll tell you plainly whether I can help.</p>
-    <div class="ctas"><a class="btn" href="{{ site.calendar_url }}">Book a call</a></div>
-    <ul class="links">
-      <li><span class="k">Email</span><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-      <li><span class="k">LinkedIn</span><a href="{{ site.linkedin }}">{{ site.linkedin | remove: "https://www." | remove: "https://" | remove: "http://" | remove: "www." | split: "/" | slice: 0, 3 | join: "/" }}</a></li>
-      <li><span class="k">GitHub</span><a href="{{ site.github }}">{{ site.github | remove: "https://" }}</a></li>
+<section class="past" aria-label="Background">
+  <div class="wrap">
+    <ul>
+      <li><p class="fact">Years inside pharma.</p><p class="detail">UCB, MSD, Cerba Research. I know what “audited” means.</p></li>
+      <li><p class="fact">CTO at Forenoon.</p></li>
+      <li><p class="fact">MSc in Artificial Intelligence.</p></li>
     </ul>
+  </div>
+</section>
+
+<section class="story" aria-labelledby="h-story">
+  <div class="wrap">
+    <h2 id="h-story" class="display">Fixing what the IT guy couldn’t.</h2>
+    <a class="link" href="{{ '/about/' | relative_url }}">Read the story</a>
+  </div>
+</section>
+
+<section class="contact on-dark" aria-labelledby="h-contact">
+  <div class="wrap ask">
+    <h2 id="h-contact" class="display">Got a job<br> in mind?</h2>
+    <div class="actions">
+      <a class="btn" href="{{ site.calendar_url }}">Book a call</a>
+      <p class="email">or email <a class="link" href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+    </div>
   </div>
 </section>

@@ -2,13 +2,12 @@
 layout: default
 ---
 {% assign w = content | strip_html | number_of_words | plus: 199 | divided_by: 200 | at_least: 1 %}
-<article class="post" aria-labelledby="post-h">
+<article class="page wrap" aria-labelledby="post-h">
   <p class="back"><a href="{{ '/notes/' | relative_url }}">All notes</a></p>
-  <header class="post-h">
+  <header>
     <p class="meta"><time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%-d %b %Y" }}</time> / {{ w }} min read</p>
-    <h1 id="post-h">{{ page.title | escape }}</h1>
+    <h1 id="post-h" class="display">{{ page.title | escape }}</h1>
   </header>
   <div class="prose">{{ content }}</div>
-  {% include cta.html heading="Working on something like this?" %}
-  <p class="back back-end"><a href="{{ '/notes/' | relative_url }}">All notes</a></p>
 </article>
+{% include cta.html %}
