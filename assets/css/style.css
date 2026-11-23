@@ -121,10 +121,10 @@ a { color: inherit; }
   min-height: calc(100svh - 5rem);
   display: flex; flex-direction: column; justify-content: space-between;
   gap: clamp(2.5rem, 6vh, 6rem);
-  padding-block: clamp(2rem, 7vh, 7rem) clamp(2.5rem, 7vh, 6rem);
+  padding-block: var(--hero-pt) var(--hero-pb);
 }
 .hero h1 {
-  font-size: var(--t-hero);
+  font-size: var(--hfs);
   margin-left: -0.055em;            /* optical alignment of the H stem */
 }
 .hero .lead {
@@ -187,8 +187,8 @@ a { color: inherit; }
 /* ---------- 6 Contact + footer ---------- */
 .contact { background: var(--blue); color: var(--pale); }
 .contact .wrap.ask { padding-block: var(--section) clamp(5rem, 11vw, 10rem); }
-.contact h2 { font-size: var(--t-hero); margin-left: -0.04em; }
-.contact .actions { margin-top: clamp(2.5rem, 5vw, 4rem); display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem 2rem; }
+.contact h2 { font-size: var(--hfs); margin-left: -0.04em; }
+.contact .actions { margin-top: var(--act); display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem 2rem; }
 .contact .btn, .cta .btn { background: var(--anise); color: var(--deep); }
 .contact .btn:hover, .cta .btn:hover { background: var(--pale); }
 .contact .email { font-family: var(--mono); font-size: 0.9375rem; letter-spacing: -0.01em; overflow-wrap: anywhere; }
@@ -255,14 +255,12 @@ a { color: inherit; }
    (headline, lead, button) at its natural height; it does not stretch to the
    fold, so the proof screen starts right after it instead of a gap. */
 @media (max-width: 767.98px), (orientation: portrait) and (max-width: 1199.98px) {
-  .hero h1, .contact h2 { font-size: clamp(2.5rem, 13.5vw, 8.5rem); }
-  .hero .wrap { min-height: 0; justify-content: flex-start; gap: clamp(1.5rem, 4vw, 2.5rem); padding-block: clamp(2rem, 7vh, 7rem) var(--section); }
+  .hero .wrap { min-height: 0; justify-content: flex-start; gap: clamp(1.5rem, 4vw, 2.5rem); }
 }
 /* Phone and small tablet in landscape: the fold is short, so the hero goes
    side by side. */
 @media (orientation: landscape) and (max-height: 560px) {
   .hero .wrap { min-height: 0; flex-direction: row; align-items: flex-end; justify-content: space-between; gap: 2rem; padding-block: 1.5rem 2.5rem; }
-  .hero h1 { font-size: clamp(2.75rem, min(8.5vw, 22svh), 6rem); }
   .hero .act { margin-left: 0; max-width: 21rem; flex: none; }
   .hero .lead { font-size: 1.2rem; }
   .hero .btn { margin-top: 1.25rem; }
@@ -270,7 +268,6 @@ a { color: inherit; }
 /* Small phones in landscape (under 760px wide): the side-by-side hero only fits
    if the headline and the lead column both shrink, so "job." never wraps alone. */
 @media (orientation: landscape) and (max-height: 560px) and (max-width: 759.98px) {
-  .hero h1 { font-size: clamp(2rem, 6.2vw, 3.5rem); }
   .hero .act { max-width: 17rem; }
 }
 /* Wide displays: scale the whole system up instead of floating a small page. */
@@ -282,3 +279,155 @@ a { color: inherit; }
 /* Skip link: hidden until keyboard focus */
 .skip{position:absolute;left:1rem;top:-10rem;z-index:10;padding:.75rem 1.25rem;background:var(--deep);color:var(--pale);border-radius:999px;text-decoration:none}
 .skip:focus{top:1rem}
+
+/* ================= Signature line (round 5) =================
+   One pen stroke from "job." to "Book a call". Hero pieces are static (drawn at load,
+   no entrance animation); from the proof screen on, the stroke draws with scroll.
+   Fallback (no scroll timelines) and reduced motion: fully drawn, static. */
+:root {
+  --sw: clamp(2px, 1.4px + 0.1vw, 3.25px);   /* stroke width */
+  /* the pen sits 60% down the viewport. On tall screens the page cannot scroll that far (the contact below has
+     to be at least 40vh), so the pen moves up with the same bound the contact uses for its own start (--c0), with
+     a lower bound of the contact's height (section + 22rem) in place of its real height */
+  --scan: min(40vh, calc(var(--section) + 22rem - 15vh));
+}
+.hero, .proof, .ways, .past, .story, .contact { position: relative; overflow: clip; }
+.hero  { --ln: var(--blue);  }
+.proof { --ln: var(--anise); view-timeline: --proof block;   --tl: --proof; }
+.ways  { --ln: var(--blue);  view-timeline: --ways block;    --tl: --ways; }
+.past  { --ln: var(--deep);  view-timeline: --past block;    --tl: --past; }
+.story { --ln: var(--blue);  view-timeline: --story block;   --tl: --story; }
+.contact { --ln: var(--anise); view-timeline: --contact block; --tl: --contact; }
+:is(.hero, .proof, .ways, .past, .story, .contact) > .wrap, .hero h1, .contact .btn { position: relative; }
+.ln {
+  position: absolute; display: block; overflow: visible; pointer-events: none;
+  fill: none; stroke: var(--ln); stroke-width: var(--sw);
+  stroke-linecap: round; stroke-linejoin: round;
+}
+.ln.ns * { vector-effect: non-scaling-stroke; }                       /* static stretch pieces */
+/* scaled pieces: one viewBox unit is --u long, so a stroke of --sw px is --sw / --u units (typed arithmetic;
+   tan(atan2()) with rem/em/vw is wrong in Safari 26) */
+@supports (opacity: calc(1px / 1px)) { .ln.u * { stroke-width: calc(var(--sw) / var(--u)); } }
+/* browsers without scroll timelines or without typed arithmetic draw the line static and fully drawn, so the
+   scaled pieces can use a non-scaling stroke there (no dashes are used) */
+@supports not ((animation-timeline: view()) and (animation-range: cover 1px cover 2px) and (opacity: calc(1px / 1px))) {
+  .ln.u * { vector-effect: non-scaling-stroke; stroke-width: var(--sw); }
+}
+.ln.v { width: 2px; margin-left: -1px; left: var(--x); top: var(--y0); height: calc(var(--y1) - var(--y0)); }
+.ln.h { height: 2px; margin-top: -1px; top: var(--y); left: var(--x0); width: calc(var(--x1) - var(--x0)); }
+.lane { --x: calc(100% - var(--gutter) / 2); }
+
+/* ---- 1 Hero (static) ---- */
+.hero .ul { left: 0; top: 0; width: 7em; height: 3.2em; }
+.hero .r2 { --y: 2.01em; --x0: 6.5em; --x1: calc(100% + var(--gutter) / 2 - 0.2em); }
+.hero .rc { left: calc(100% + var(--gutter) / 2 - 0.2em); top: 2.01em; width: 0.2em; height: 0.2em; }
+.hero .r3 { --x: calc(100% - var(--gutter) / 2); --y0: calc(var(--hero-pt) + 2.21 * var(--hfs) - 1px); --y1: calc(100% - var(--hero-pb)); }
+.hero .r4 { left: var(--gutter); width: calc(100% - 1.5 * var(--gutter)); top: calc(100% - var(--hero-pb)); height: var(--hero-pb); }
+.hero .l3 { --x: 0.055em; --y0: 2.44em; --y1: calc(2.44em + 100vh); }
+/* the one source for the hero size and padding (the line finds the headline and the bottom band from them) */
+.hero { --hfs: var(--t-hero); }
+.hero h1 { font-size: var(--hfs); }
+.hero { --hero-pt: clamp(2rem, 7vh, 7rem); --hero-pb: clamp(2.5rem, 7vh, 6rem); }
+.route-r { display: none; }
+@media (max-width: 1023.98px) { .route-r { display: block; } .route-l { display: none; } }
+@media (max-width: 767.98px), (orientation: portrait) and (max-width: 1199.98px) {
+  .hero { --hero-pb: var(--section); --hfs: clamp(2.5rem, 13.5vw, 8.5rem); }
+}
+@media (orientation: landscape) and (max-height: 560px) {
+  .route-r { display: none; } .route-l { display: block; }
+  .hero { --hfs: clamp(2.75rem, min(8.5vw, 22svh), 6rem); }
+}
+@media (orientation: landscape) and (max-height: 560px) and (max-width: 759.98px) { .hero { --hfs: clamp(2rem, 6.2vw, 3.5rem); } }
+
+/* ---- 2 Proof: growing loops in the top band (more done every month) ---- */
+.proof { --yb: calc(var(--section) * 0.7); --re: calc(var(--section) * 0.2);
+         --ch: calc(var(--section) * 0.5); --cw: calc(var(--ch) * 415.46 / 100); }
+@media (min-width: 768px) { .proof { --ch: calc(var(--section) * 0.56); --cw: calc(var(--ch) * 468.57 / 100); } }
+.proof .p1 { --x: var(--gutter); --y0: 0px; --y1: calc(var(--yb) - var(--re)); --a: 0px; --b: calc(var(--yb) - var(--re)); }
+.proof .p2 { left: var(--gutter); top: calc(var(--yb) - var(--re)); width: var(--re); height: var(--re); --u: calc(var(--re) / 100); --a: calc(var(--yb) - var(--re)); --b: var(--yb); }
+.proof .p3 { --y: var(--yb); --x0: calc(var(--gutter) + var(--re)); --x1: calc(100% - var(--gutter) / 2 - var(--re) - var(--cw)); --a: var(--yb); --b: calc(var(--section) * 0.95); }
+.proof .p4 { right: calc(var(--gutter) / 2 + var(--re)); bottom: calc(100% - var(--yb)); width: var(--cw); --u: calc(var(--ch) / 100); --a: calc(var(--section) * 0.95); --b: calc(var(--section) * 2.1); }
+.proof .p4.s { aspect-ratio: 415.46 / 100; } .proof .p4.l { aspect-ratio: 468.57 / 100; display: none; }
+@media (min-width: 768px) { .proof .p4.s { display: none; } .proof .p4.l { display: block; } }
+.proof .p5 { right: calc(var(--gutter) / 2); top: var(--yb); width: var(--re); height: var(--re); --u: calc(var(--re) / 100); --a: calc(var(--section) * 2.1); --b: calc(var(--section) * 2.25); }
+.proof .p6 { --y0: calc(var(--yb) + var(--re)); --y1: 100%; --a: calc(var(--section) * 2.25); --b: calc(100% - 100vh); }
+
+/* ---- 3 Services, 4 Background: at "Three ways in." the stroke steps in off the margin and
+   walks beside the offers (in the empty column next to their text); above the credentials,
+   which use the full measure, it steps back out to the margin and runs on to the knot.
+   --xi is the inner column. Phones and 1200 up: right of the description column.
+   768-1199: the description column reaches the content edge, so the column between
+   the offer names and their descriptions, just past the end of the heading. ---- */
+.ways, .past {
+  --lx: calc(100% - var(--gutter) / 2);                       /* the margin lane */
+  --r: clamp(1rem, 2vw, 2rem);                                /* corner radius */
+  --S: calc(var(--section) * 0.6);                            /* scroll spent on each crossing */
+  --col8: calc(var(--gutter) + (100% - 2 * var(--gutter) + clamp(1rem, 2vw, 2rem)) * 7 / 12);
+  --xi: min(var(--lx), max(calc(var(--gutter) + 12.9 * var(--t-lead) + 1.75rem), calc(var(--gutter) + 6.5em)));
+}
+.ways .ln, .past .ln { font-size: var(--t-h2); }             /* 1em = the "Three ways in." size */
+@media (min-width: 768px)  { .ways, .past { --xi: min(calc(var(--gutter) + 6.35em), calc(var(--col8) - 1.5rem)); } }
+@media (min-width: 1200px) { .ways, .past { --xi: min(var(--lx), calc(var(--col8) + 12.9 * var(--t-lead) + 1.75rem)); } }
+/* under 358px there is no room beside the offers: the stroke stays in the margin */
+@media (max-width: 357.98px) {
+  .ways, .past { --xi: var(--lx); --r: 0px; --S: 0px; }
+  .ways .w2, .ways .w3, .ways .w4, .past .b2, .past .b3, .past .b4 { display: none; }
+}
+.ways { --yt: calc(var(--section) + 0.78em); }               /* the heading baseline */
+.ways .w1 { --y0: 0px; --y1: calc(var(--yt) - var(--r)); --a: 0px; --b: calc(var(--yt) - var(--r)); }
+.ways .w2 { left: calc(var(--lx) - var(--r)); top: calc(var(--yt) - var(--r)); width: var(--r); height: var(--r); --u: calc(var(--r) / 100);
+            --a: calc(var(--yt) - var(--r)); --b: var(--yt); }
+.ways .w3 { --y: var(--yt); --x0: calc(var(--xi) + var(--r)); --x1: calc(var(--lx) - var(--r)); --a: var(--yt); --b: calc(var(--yt) + var(--S)); }
+.ways .w4 { left: var(--xi); top: var(--yt); width: var(--r); height: var(--r); --u: calc(var(--r) / 100);
+            --a: calc(var(--yt) + var(--S)); --b: calc(var(--yt) + var(--S) + var(--r)); }
+.ways .w5 { --x: var(--xi); --y0: calc(var(--yt) + var(--r)); --y1: 100%; --a: calc(var(--yt) + var(--S) + var(--r)); --b: calc(100% - 100vh); }
+.past { --yo: calc(var(--section) * 0.5); }                  /* middle of the band above the credentials */
+.past .b1 { --x: var(--xi); --y0: 0px; --y1: calc(var(--yo) - var(--r)); --a: 0px; --b: calc(var(--yo) - var(--r)); }
+.past .b2 { left: var(--xi); top: calc(var(--yo) - var(--r)); width: var(--r); height: var(--r); --u: calc(var(--r) / 100);
+            --a: calc(var(--yo) - var(--r)); --b: var(--yo); }
+.past .b3 { --y: var(--yo); --x0: calc(var(--xi) + var(--r)); --x1: calc(var(--lx) - var(--r)); --a: var(--yo); --b: calc(var(--yo) + var(--S)); }
+.past .b4 { left: calc(var(--lx) - var(--r)); top: var(--yo); width: var(--r); height: var(--r); --u: calc(var(--r) / 100);
+            --a: calc(var(--yo) + var(--S)); --b: calc(var(--yo) + var(--S) + var(--r)); }
+.past .b5 { --y0: calc(var(--yo) + var(--r)); --y1: 100%; --a: calc(var(--yo) + var(--S) + var(--r)); --b: calc(100% - 100vh); }
+
+/* ---- 5 Story: a knot (what the IT guy couldn't fix), then straight on ---- */
+.story { --kw: calc(var(--section) * 0.62); --kh: calc(var(--kw) * 117.01 / 100); --ky: calc(var(--section) * 0.08); }
+.story .k1 { --y0: 0px; --y1: calc(var(--ky) + var(--kh) * 1.58 / 117.01); --a: 0px; --b: calc(var(--ky) + var(--kh) * 1.58 / 117.01); }
+.story .k2 { left: calc(100% - var(--gutter) / 2 - var(--kw)); top: var(--ky); width: var(--kw); aspect-ratio: 100 / 117.01; --u: calc(var(--kw) / 100);
+             --a: calc(var(--ky) + var(--kh) * 1.58 / 117.01); --b: calc(var(--ky) + var(--kh) * 1.58 / 117.01 + var(--kh) * 2.2); }
+.story .k3 { --y0: calc(var(--ky) + var(--kh) * 115.42 / 117.01); --y1: 100%; --a: calc(var(--ky) + var(--kh) * 1.58 / 117.01 + var(--kh) * 2.2); --b: calc(100% - 100vh); }
+
+/* ---- 6 Contact: in from the margin, around Book a call. Ends exactly at the bottom of the page ---- */
+.contact { --hfs: var(--t-hero); --act: clamp(2.5rem, 5vw, 4rem); --rc: clamp(1rem, 2vw, 2rem); --cm: 13px;
+           --atop: calc(var(--section) + 1.8 * var(--hfs) + var(--act));
+           --win: calc(100% - 100vh - var(--c0)); --c0: min(var(--scan), calc(100% - 115vh)); }
+@media (max-width: 767.98px), (orientation: portrait) and (max-width: 1199.98px) { .contact { --hfs: clamp(2.5rem, 13.5vw, 8.5rem); } }
+.contact .c1 { --y0: 0px; --y1: calc(var(--atop) - var(--cm) - var(--rc) + 1px); }
+.contact .actions { position: relative; }
+.contact .c2 { left: calc(100% + var(--gutter) / 2 - var(--rc)); top: calc(-1 * var(--cm) - var(--rc)); width: var(--rc); height: var(--rc); --u: calc(var(--rc) / 100); }
+.contact .c3 { --y: calc(-1 * var(--cm)); --x1: calc(100% + var(--gutter) / 2 - var(--rc)); --x0: calc(4rem + 4.76 * var(--t-body) + 38px); }
+.contact .c4 { left: -16px; top: calc(-1 * var(--cm)); width: calc(100% + 60px); height: calc(100% + var(--cm) + 16px); --u: calc((4rem + 4.76 * var(--t-body) + 60px) / 220); }
+.contact .c1 { --a: 0px;                       --b: calc(0.40 * var(--win)); }
+.contact .c2 { --a: calc(0.40 * var(--win));   --b: calc(0.46 * var(--win)); }
+.contact .c3 { --a: calc(0.46 * var(--win));   --b: calc(0.68 * var(--win)); }
+.contact .c4 { --a: calc(0.68 * var(--win));   --b: calc(var(--win) - 4px); }
+.contact .ln.d * { --s0: var(--c0); }
+
+/* keyboard focus takes over from the drawn ring */
+.contact .c4 { transition: opacity 150ms var(--ease-out); }
+.contact .btn:focus-visible .c4 { opacity: 0.3; }
+/* Windows high contrast: the line is decoration, so it steps out */
+@media (forced-colors: active) { .ln { display: none; } }
+
+/* ---- Drawing with scroll ---- */
+@supports (animation-timeline: view()) and (animation-range: cover 1px cover 2px) and (opacity: calc(1px / 1px)) {
+  @media (prefers-reduced-motion: no-preference) {
+    .ln.d * {
+      stroke-dasharray: 1 1.02;
+      animation: ln-draw linear both;
+      animation-timeline: var(--tl);
+      animation-range: cover calc(var(--s0, var(--scan)) + var(--a)) cover calc(var(--s0, var(--scan)) + var(--b));
+    }
+  }
+}
+@keyframes ln-draw { from { stroke-dashoffset: 1.01; } to { stroke-dashoffset: 0; } }
