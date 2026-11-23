@@ -1,6 +1,6 @@
-# t/m — thomas moerman
+# t/m · Thomas Moerman
 
-My personal site: projects, notes and a bit about me.
+My personal site: what I offer, notes and a bit about me.
 
 **Live at [thomas-moerman.github.io](https://thomas-moerman.github.io)**
 
@@ -22,19 +22,20 @@ title: Burgundy became blue
 Your note goes here.
 ```
 
-Push it, and the note shows up under **notes** on the site within a minute.
+Push it, and the note shows up under **Notes** on the site within a minute.
 
-## Adding a project
+## Contact details and facts
 
-Projects live in `_data/projects.yml`. Copy an existing entry and change the
-label, title, text, tags and link.
+Email, booking link, company line, client names and the open-source link live in
+`_config.yml`. Empty `clients` or `open_source` hide their row on the home page.
 
 ## How it's built
 
 - [Jekyll](https://jekyllrb.com), built by GitHub Pages itself. No build step, no plugins.
+- Design "Letter": one reading column, no JavaScript, no motion beyond a 150 ms hover.
 - Styling follows the t/m brand guidelines: Princess Blue `#00539C`, Anise Flower `#F4E3B5`,
   Bricolage Grotesque for headings, Familjen Grotesk for text and DM Mono for labels.
-- All styles are in `assets/css/style.css`; the page layout is in `_layouts/default.html`.
+- All styles are in `assets/css/style.css`; page layouts are in `_layouts/`, shared pieces in `_includes/`.
 
 To preview locally without installing Ruby:
 

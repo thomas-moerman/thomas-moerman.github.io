@@ -2,16 +2,13 @@
 layout: default
 ---
 {% assign w = content | strip_html | number_of_words | plus: 199 | divided_by: 200 | at_least: 1 %}
-<article class="sec" aria-labelledby="post-h">
-  <div class="sec-index"><div><span class="no" aria-hidden="true">03</span><a class="lbl" href="{{ '/' | relative_url }}#notes">notes</a></div></div>
-  <div class="sec-body">
-    <div class="about-head">
-      <span class="meta label">{{ page.date | date: "%d.%m.%Y" }} / {{ w }} min</span>
-      <h1 id="post-h" style="view-transition-name:note-{{ page.date | date: '%Y%m%d' }}-{{ page.slug }}">{{ page.title }}</h1>
-    </div>
-    <div class="prose">{{ content }}</div>
-    <ul class="contact back">
-      <li><a href="{{ '/' | relative_url }}#notes"><span class="v">← all notes</span></a></li>
-    </ul>
-  </div>
+<article class="post" aria-labelledby="post-h">
+  <p class="back"><a href="{{ '/notes/' | relative_url }}">All notes</a></p>
+  <header class="post-h">
+    <p class="meta"><time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%-d %b %Y" }}</time> / {{ w }} min read</p>
+    <h1 id="post-h">{{ page.title | escape }}</h1>
+  </header>
+  <div class="prose">{{ content }}</div>
+  {% include cta.html heading="Working on something like this?" %}
+  <p class="back back-end"><a href="{{ '/notes/' | relative_url }}">All notes</a></p>
 </article>

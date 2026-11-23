@@ -1,0 +1,11 @@
+{%- comment -%}Param: include.limit (optional). Renders note rows, or the empty message.{%- endcomment -%}
+{% if site.posts.size > 0 %}
+<ul class="notes">
+  {% for post in site.posts limit: include.limit %}
+  {% assign w = post.content | strip_html | number_of_words | plus: 199 | divided_by: 200 | at_least: 1 %}
+  <li><a href="{{ post.url | relative_url }}"><span class="t">{{ post.title | escape }}</span><span class="meta"><time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%-d %b %Y" }}</time> / {{ w }} min</span></a></li>
+  {% endfor %}
+</ul>
+{% else %}
+<p class="notes-empty"><strong>No notes yet.</strong> The first one goes out soon. <a href="{{ site.linkedin }}">Follow me on LinkedIn</a> to see it when it does.</p>
+{% endif %}

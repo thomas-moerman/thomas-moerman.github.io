@@ -1,9 +1,18 @@
-title: thomas/moerman
-description: "Projects, notes and experiments by Thomas Moerman."
+title: t/m Thomas Moerman
+description: "I build AI agents for healthcare and pharma that hold up under validation. Independent AI architect and CTO at Forenoon."
 url: https://thomas-moerman.github.io
 lang: en
+timezone: Europe/Brussels
 permalink: /notes/:year/:month/:day/:title/
 defaults:
   - scope: {path: "", type: posts}
     values: {layout: post}
 exclude: [README.md, .gitignore]
+
+email: thomas.ec.moerman@gmail.com
+calendar_url: "https://calendar.app.google/ompBeBhPtjxU5Uqc8"
+company: "t/m is a trade name of flowTAB BV · BE 0786.522.223"
+linkedin: https://www.linkedin.com/in/thomas-moerman/
+github: https://github.com/thomas-moerman
+clients: ["UCB", "MSD", "Cerba Research"]   # row hidden while empty
+open_source: ""                             # repo URL; row hidden while empty
